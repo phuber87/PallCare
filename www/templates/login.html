@@ -1,0 +1,30 @@
+<ion-view view-title="PallCare" name="login-view">
+    <ion-content class="padding vcenter">
+
+        <img src="img/login-logo.png" class="center" width="72" height="72">
+
+        <form name="LoginForm">
+            <div class="center">
+                <div class="list list-inset">
+                    <label class="item item-input" style="max-width: 365px; margin-left: auto; margin-right: auto;">
+                        <span class="input-label">Benutzer</span>
+                        <input type="text" placeholder="Benutzername" ng-model="user.username" autocomplete="off" autocorrect="off" autocapitalize="off">
+                    </label>
+                    <label class="item item-input" style="max-width: 365px; margin-left: auto; margin-right: auto;">
+                        <span class="input-label">Passwort</span>
+                        <input type="password" placeholder="Passwort" ng-model="user.password">
+                        <!--<button ng-if="user.password.length"
+                                class="input-button button button-icon ion-ios-close"
+                                ng-click="clearInput()">
+                        </button>-->
+                    </label>
+                </div>
+                <div align="center">
+                    <button type="submit" class="button button-stable" ng-click="login()">Anmelden</button>
+                </div>
+            </div>
+        </form>
+
+    </ion-content>
+    <div class="login-bottom">&copy; <small>Medizinische Universität Wien</small></div>
+</ion-view>

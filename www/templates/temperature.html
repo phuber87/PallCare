@@ -1,0 +1,34 @@
+<ion-view view-title="Temperatur">
+  <ion-content has-bouncing="false"> <!-- scroll="false" -->
+
+      <form ng-submit="create()">
+          <div class="list" style="padding-top: 10px; padding-bottom: 40px;">
+              <label class="item item-input">
+                  <i class="icon ion-thermometer placeholder-icon"></i>
+                  <input type="number" min="34" max="45" step="0.1" placeholder="Temperatur eingeben..." ng-model="newTemperature.degreeCelsius" autocomplete="off" autocorrect="off" autocapitalize="off">
+              </label>
+              <button type="submit" class="button button-full button-balanced">Speichern</button>
+          </div>
+      </form>
+
+      <div class="item item-divider">
+          Verlauf
+      </div>
+      <ion-scroll zooming="false" direction="y" style="width: auto; height: 28%; padding-bottom: 40px;">
+          <ion-list style="width: auto; height: 28%; padding-bottom: 40px;">
+              <ion-item ng-repeat="temperature in temperatures | orderBy: '-createdAt'" href="#/tab/temperature/edit/{{temperature.objectId}}/{{temperature.DegreeCelsius}}">
+                  <p>{{temperature.DegreeCelsius}} ({{temperature.createdAt}})</p>
+                  <ion-option-button class="button-energized" ui-sref="tab.temperatureEdit({id: temperature.objectId, degreeCelsius: temperature.DegreeCelsius})">Bearbeiten</ion-option-button>
+                  <ion-option-button class="button-assertive" ng-click="delete(temperature)">Löschen</ion-option-button>
+              </ion-item>
+          </ion-list>
+      </ion-scroll>
+
+      <div class="item item-divider">
+          Chart
+      </div>
+      <div id="chart" style="width: auto; height: 400px;">
+      </div>
+
+  </ion-content>
+</ion-view>
